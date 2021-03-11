@@ -1,0 +1,18 @@
+<form class="card" method="post">
+    <div class="card-header">
+        <input type="hidden" name="titulo" id="titleInput" value="{title}" />
+        <h3 class="card-title" id="title">{title}</h3>
+        <div class="btns">
+            <button class="delete-btn" type="submit" name="delete">
+                <i class="far fa-trash-alt"></i>
+            </button>
+            <button class="delete-btn" type="submit" name="update" onclick="updateValues(this)">
+                <i class="far fa-edit"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-content">
+        <input type="hidden" name="detalhes" id="detailsInput" value="{details}" />
+        <p id="details">{details}</p>
+    </div>
+</form>
