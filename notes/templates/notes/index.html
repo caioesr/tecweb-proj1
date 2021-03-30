@@ -1,0 +1,70 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="appbar">
+    <img src="{% static 'notes/img/logo-getit.png' %}" class="logo"/>
+    <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+</div>
+
+<main class="container">
+
+    <form class="form-card" method="post" autocomplete="off">
+        {% csrf_token %}
+        <input
+            class="form-card-title"
+            type="text"
+            name="titulo"
+            placeholder="Título"
+        />
+        <input class="autoresize" type="text" name="tag" placeholder="Tag..." list="tags" />
+            <datalist id="tags">
+                {% for tag in tags %}
+                    <option value="{{ tag.tag }}">{{ tag.tag }}</option>
+                {% endfor %}
+            </datalist>
+        <textarea
+            class="autoresize"
+            name="detalhes"
+            placeholder="Digite o conteúdo..."
+        ></textarea>
+        <button class="btn" type="submit" name="create">Criar</button>
+    </form>
+
+    <div class="tag-container">
+        {% for tag in tags %}
+            <a href="/?tag={{ tag.label }}" class="tag">{{ tag.tag }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="card-container">
+        {% for note in notes %}
+        <form class="card" method="post">
+            {% csrf_token %}
+            <div class="card-header">
+                <input type="hidden" name="id" id="idInput" value="{{ note.id }}" />
+                <input type="hidden" name="titulo" id="titleInput" value="{{ note.title }}" />
+                <h3 class="card-title" id="title">{{ note.title }}</h3>
+                <div class="btns">
+                    <button class="delete-btn" type="submit" name="delete">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                    <button class="delete-btn" type="submit" name="update" onclick="updateValues(this)">
+                        <i class="far fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-content">
+                <input type="hidden" name="detalhes" id="detailsInput" value="{{ note.content }}" />
+                <p id="details">{{ note.content }}</p>
+            </div>
+        </form>
+        {% endfor %}
+    </div>
+
+</main>
+
+<script type="text/javascript" src="{% static 'notes/script/getit.js' %}"></script>
+
+{% endblock %}

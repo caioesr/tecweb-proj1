@@ -145,6 +145,7 @@ body {
   font-family: 'Permanent Marker', cursive;
   font-size: 0.9rem;
   margin: 0.2rem 0.2rem 0.4rem;
+  width:65%;
 }
 
 .card-content {
@@ -233,4 +234,35 @@ body {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 90%;
+  margin: 1.5rem auto;
+}
+
+.tag {
+  display: flex;
+  margin: 1rem 1rem;
+  border-radius: 5px;
+  flex: 0 1 15%;
+  height: 1.5rem;
+  justify-content: space-around;
+  text-decoration: none;
+  color: #2c2c2c;
+  background-color: #f7d736;
+  align-items: center;
+}
+
+.tag:hover {
+  border-color: #f7d736;
+  border-width: 0.2rem;
+  border-style: solid;
+  color: #f7d736;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  background-color: white;
+  font-weight: bold;
 }

@@ -59,23 +59,23 @@ document.querySelectorAll("h3").forEach(function(node){
 
 function updateValues(btn){
   var forms = btn.parentElement.parentElement.parentElement;
-  var old_title = forms.children[0].children[0];
-  var new_title = forms.children[0].children[1];
-  var old_details = forms.children[1].children[0];
-  var new_details = forms.children[1].children[1];
+  var old_title = forms.children[1].children[1];
+  var new_title = forms.children[1].children[2];
+  var old_details =forms.children[2].children[0];
+  var new_details = forms.children[2].children[1];
 
   var old_input_title = document.createElement("input");
   var old_input_details = document.createElement("input");
 
   old_input_title.value = old_title.value;
-  old_input_title.name = "old_title"
+  old_input_title.name = "old_title";
   old_input_details.value = old_details.value;
-  old_input_details.name = "old_details"
-  old_input_title.setAttribute("type","hidden")
-  old_input_details.setAttribute("type","hidden")
+  old_input_details.name = "old_details";
+  old_input_title.setAttribute("type","hidden");
+  old_input_details.setAttribute("type","hidden");
 
-  forms.appendChild(old_input_title)
-  forms.appendChild(old_input_details)
+  forms.appendChild(old_input_title);
+  forms.appendChild(old_input_details);
 
   old_title.value = new_title.innerHTML;
   old_details.value = new_details.innerHTML;
