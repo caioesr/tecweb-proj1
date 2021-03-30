@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn projeto1_parteB.wsgi
+web: python manage.py runserver localhost:5000

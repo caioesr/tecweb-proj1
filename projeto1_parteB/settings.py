@@ -98,8 +98,7 @@ WSGI_APPLICATION = 'projeto1_parteB.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default='postgresql://localhost/proj1?user=admin&password=proj1tecweb',
-        conn_max_age=600,
-        ssl_require=not DEBUG
+        conn_max_age=600
     )
 }
 
