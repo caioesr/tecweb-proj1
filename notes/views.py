@@ -9,12 +9,15 @@ def index(request):
 
         if (request.POST.__contains__('tag')):
             tagType = request.POST.get('tag')
-            tags = Tag.objects.all()
-            tag = Tag(tag=tagType, label=tagType.replace(' ', '').title())
-            for _tag in tags:
-                if _tag.tag == tagType:
-                    tag = _tag
-                    break
+            if (len(tagType) > 0):
+                tags = Tag.objects.all()
+                tag = Tag(tag=tagType, label=tagType.replace(' ', '').title())
+                for _tag in tags:
+                    if _tag.tag == tagType:
+                        tag = _tag
+                        break
+            else:
+                tag = None
 
         if (request.POST.__contains__('id')):
             id = request.POST.get('id')
