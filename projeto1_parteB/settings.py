@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'projeto1_parteB.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'proj1',
-        'USER': 'admin',
-        'PASSWORD': 'proj1tecweb',
+        'NAME': 'getit',
+        'USER': 'getituser',
+        'PASSWORD': 'getitsenha',
         'HOST': 'localhost',
         'PORT': '5432',
     }
